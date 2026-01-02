@@ -33,7 +33,6 @@ sudo reboot
 
 ## Playbook: Open WebUI with Ollama
 
-TODO
 12/10/2025
 
 https://build.nvidia.com/spark/open-webui
@@ -189,16 +188,78 @@ A couple take-aways:
 
 ## Playbook: Vibe Coding in VS Code
 
-TODO
+TOD1/2/2026O
 
 https://build.nvidia.com/spark/vibe-coding
 
-- about setup
-- struggle with continue.dev
-- insiders
-- dmr
-- still stuck
+After trying this setup, I am more and more disappointed with the Continue.dev VS Code plugin.  The instructions were very clear and setting it up was fine.  Chat worked with Ollama on DGX Spark, but a lot of other features would not work:
 
+- Could never configure Continue.dev to access local files or directies
+- Agent mode failed with time outs or struggles getting to files
+- Would work if I used Ask mode and copied source files to chat and copied back
+- Completely failed when I tried VS Code remotes using ssh
+
+
+I had also ran across a YouTube video describing how to use VS Code Insiders to configure Copilot with a local Ollama compatible model.
+
+- YouTube about using VS Code Insider (instead of Continue.dev)
+- You’re Using the WRONG VS Code… Here’s Why Green Wins
+- Alex Ziskind
+- https://youtu.be/IsJcjrQwgF4?si=sCUnsqCBQ3GeF9K4
+
+I was able to set up models from my DGX Ollama server and Docker Model Runner:
+
+My User settings:
+```
+{
+    "github.copilot.chat.customOAIModels": {
+        "gpt-oss:20b": {
+            "name": "gpt-oss:20b",
+            "url": "http://10.0.0.111:11434",
+            "toolCalling": true,
+            "vision": false,
+            "thinking": true,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "requiresAPIKey": false
+        },
+        "gpt-oss:120b": {
+            "name": "gpt-oss:120b",
+            "url": "http://10.0.0.111:11434",
+            "toolCalling": true,
+            "vision": false,
+            "thinking": true,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "requiresAPIKey": false
+        },
+        "gpt-oss:120B-MXFP4": {
+            "name": "gpt-oss:120B-MXFP4",
+            "url": "http://10.0.0.111:12434",
+            "toolCalling": true,
+            "vision": false,
+            "thinking": true,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "requiresAPIKey": false
+        },
+        "smollm2": {
+            "name": "smollm2",
+            "url": "http://10.0.0.111:12434",
+            "toolCalling": false,
+            "vision": false,
+            "thinking": true,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "requiresAPIKey": false
+        }
+    }
+}
+```
+
+As of this writing, this only partially works.  The chat mode seems to work, but agents often start and go back to "can we help".
+
+Probably going to use free Copilot or pay $10/month. Might not be bad compromise to keep up with industry.  Just need to make sure anything shared (ie. code) with Copilot is not private.
 
 ## Playbook: Set up Tailscale on Your Spark
 
@@ -251,9 +312,9 @@ https://build.nvidia.com/spark/txt2kg
 ## Follow up Tasks
 - [x] finish Playbook: Open WebUI with Ollama
 - [x] finish Bonus: Docker Model Runner
-- [ ] describe DMR setup for OpenWebUI
-- [ ] describe DMR setup for Continue.dev?
-- [ ] finish Playbook: Vibe Coding in VS Code
+- [-] describe DMR setup for OpenWebUI
+- [-] describe DMR setup for Continue.dev? skipping.  not recommending this plugin
+- [x] finish Playbook: Vibe Coding in VS Code
 - [x] finish Bonus: Immich photo Server
 - [x] finish Playbook: Set up Tailscale on Your Spark
 - [ ] complete and finish Playbook: Text to Knowledge Graph
@@ -261,6 +322,7 @@ https://build.nvidia.com/spark/txt2kg
 - [ ] look for updates or fixes for "nvtop" lack of memory tracking
 - [ ] back to Tailscale, describe how to use, and use it for immich, others
 - [ ] continue Immich tools and import process
+- [ ] revisit VS Code Insiders with comaptible models (nice to save $10/month and/or have fully local agent)
 
 
 ## REFERENCES
@@ -271,12 +333,16 @@ https://build.nvidia.com/spark/txt2kg
 - https://build.nvidia.com/spark/open-webui
 -
 - https://build.nvidia.com/spark/vibe-coding
+- YouTube about using VS Code Insider (instead of Continue.dev)
+- https://youtu.be/IsJcjrQwgF4?si=sCUnsqCBQ3GeF9K4
 - 
 - https://build.nvidia.com/spark/tailscale
 - 
 - https://build.nvidia.com/spark/txt2kg
 -
 - https://github.com/NVIDIA/dgx-spark-playbooks/tree/main
+- not sure how useful this is:
+- https://codewiki.google/github.com/nvidia/dgx-spark-playbooks
 
 
 ## (PRIVATE) REFERENCES
