@@ -199,18 +199,43 @@ https://build.nvidia.com/spark/vibe-coding
 - dmr
 - still stuck
 
-## Bonus: Immich photo Server
-
-TODO
-
-Described as "local alternative to Google Photos"
-
 
 ## Playbook: Set up Tailscale on Your Spark
 
-TODO
+12/20/2025
 
 https://build.nvidia.com/spark/tailscale
+
+The instructions for Tailscale worked perfectly.  Honestly, the hardest part of using Tailscale is undertanding the concept and how to "login".  The set of Youtube videos below help.
+
+- https://www.youtube.com/@Tailscale/videos
+- https://youtu.be/zngSuqCM4d8?si=QTEoXT9aVvCUU4-G
+- https://youtu.be/guHoZ68N3XM?si=nI2l-Qo-O7y1K5DP
+
+I'm still coming up to speed with using Tailscale.  Being very paranoid about opening up my internal servers to the world, I have been thinking alot about how to limit Tailscale access.  For example, see the part about porting my Immich docker container to a VM below.
+
+Overall, I really like the idea of Tailscale for allowing access to the DGX Spark, but still need to follow up on how to best use it.
+
+
+## Bonus: Immich photo Server
+
+1/2/2026
+
+Described as "local alternative to Google Photos".  I had previously installed this (using instructions for running as docker container).  I am adding a short mention in this document becauase I found Tailscale references to 
+
+Install Immich is easy, but importing a large number of photos is challlenging.  It is easier to use docker --exec line to import:
+```
+docker run -it -v "/home/user/Photos:/import:ro" --env-file .env ghcr.io/immich-app/immich-cli:latest upload --recursive /import
+```
+
+Most images from newer devices import fine, but older photos don't have the EXIF tags that Immich is looking for.  I am still experimenting with tools to fix the photos.  The tell-tale sign is that new photos without the proper EXIF tags end up in the "today" category. 
+
+As I was tweaking my tools, I would just delete all the photos from "Today" and retry importing files I just applied my conversion tools too.  Still a work in progress.
+
+A had similar issues with photos from Google Photos, dumped using "Google Takeout".  If you simply download photos from "Google Photos", non of the images will have original tags.  "Google Take" out generates .json files foreach photo.  I created yet another tool to use that json data to "fix" the EXIF tags.  Mostly works, but also still a work in progress.
+
+Getting back to Tailscale.  The NVIDIA Playbook reviewed above, shows how to attach the DGX Spark itself as a node to a Tailscale "Tailnet".  Since Immich really isn't using GPU, I just happened to use the docker service and large amount of hard disk (my Immich photos from 20+ years is using over 500GB)...I migrated the Immich folders/files and containers to another server.  The second server is running Proxmox.  I created Ubuntu VM with docker and ported the Immich stuff to that docker server.  It may seem like overkill, but it did allow for easily installing Tailscale within that VM and connecting just that VM to a Tailnet.
+
 
 ## Playbook: Text to Knowledge Graph
 
@@ -229,12 +254,13 @@ https://build.nvidia.com/spark/txt2kg
 - [ ] describe DMR setup for OpenWebUI
 - [ ] describe DMR setup for Continue.dev?
 - [ ] finish Playbook: Vibe Coding in VS Code
-- [ ] finish Bonus: Immich photo Server
-- [ ] finish Playbook: Set up Tailscale on Your Spark
+- [x] finish Bonus: Immich photo Server
+- [x] finish Playbook: Set up Tailscale on Your Spark
 - [ ] complete and finish Playbook: Text to Knowledge Graph
 
 - [ ] look for updates or fixes for "nvtop" lack of memory tracking
 - [ ] back to Tailscale, describe how to use, and use it for immich, others
+- [ ] continue Immich tools and import process
 
 
 ## REFERENCES
@@ -260,6 +286,10 @@ Mostly links to private repos for my own reference.
 - https://github.com/alpiepho/ollama_stuff
 - https://github.com/alpiepho/openwebui_stuff
 - https://github.com/alpiepho/docker_model_stuff
+- https://github.com/alpiepho/immich_stuff
+- https://github.com/alpiepho/imich_exif_fixer
+- https://github.com/alpiepho/immich_takeout_fixer
+
 
 
 
