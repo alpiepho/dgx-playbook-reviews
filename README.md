@@ -5,6 +5,19 @@ Why do this? As I have found, if you follow the tutorials to the letter, they wo
 
 Each review will likely be shorter, more to the point, with less spin on how wonderful it is :). 
 
+## Table of Contents
+
+- [Playbook: DGX-Dashboard](#playbook-dgx-dashboard)
+- [Playbook: Open WebUI with Ollama](#playbook-open-webui-with-ollama)
+- [Bonus: Docker Model Runner](#bonus-docker-model-runner)
+- [Playbook: Vibe Coding in VS Code](#playbook-vibe-coding-in-vs-code)
+- [Playbook: Set up Tailscale on Your Spark](#playbook-set-up-tailscale-on-your-spark)
+- [Bonus: Immich photo Server](#bonus-immich-photo-server)
+- [Playbook: Text to Knowledge Graph](#playbook-text-to-knowledge-graph)
+- [Follow up Tasks](#follow-up-tasks)
+- [REFERENCES](#references)
+- [(PRIVATE) REFERENCES](#private-references)
+
 ## Playbook: DGX-Dashboard
 
 11/30/2025
