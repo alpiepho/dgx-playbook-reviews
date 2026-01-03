@@ -259,7 +259,9 @@ My User settings:
 
 As of this writing, this only partially works.  The chat mode seems to work, but agents often start and go back to "can we help".
 
-Probably going to use free Copilot or pay $10/month. Might not be bad compromise to keep up with industry.  Just need to make sure anything shared (ie. code) with Copilot is not private.
+Found logging and issues with parameters passed to tools.  Looks like Copilot free models work (Claude Haiku 4.5).  Both locally and using remote ssh. 
+
+Probably going to use free Copilot or pay $10/month. Might not be bad compromise to keep up with industry.  Just need to make sure anything shared (ie. code) with Copilot is not private.  Added links to plans and prices to the REFERENCES.
 
 ## Playbook: Set up Tailscale on Your Spark
 
@@ -343,6 +345,10 @@ https://build.nvidia.com/spark/txt2kg
 - https://github.com/NVIDIA/dgx-spark-playbooks/tree/main
 - not sure how useful this is:
 - https://codewiki.google/github.com/nvidia/dgx-spark-playbooks
+
+- Copilot plans and pricing
+- https://docs.github.com/en/copilot/reference/ai-models/supported-models
+- https://docs.github.com/en/copilot/get-started/plans
 
 
 ## (PRIVATE) REFERENCES

@@ -1,34 +1,42 @@
+# Playbook Review Notes
 
-```
-- Play book
-- Review
-- Five coding.
-- First set up works
-- Works for chat.
-- Agent not so much.
-- Spent days trying to configure accessing local files.
-- Was able to .2 doctor model runner.
-- Dr. model runner not as stable as a llama.
-- Worst behavior trying to use the S code SSH. 
-- Add sample config files.
-- Take screenshots.
-- Create page of details.
-- On GitHub maybe
+## DGX Playbook Status
 
-- Add references.
-- With links.
-- Right now I’d probably use copilot or cursor or code.
-- Try to keep local GPU for data.
+### Issues & Learnings
+- First setup works
+- Works for chat use cases
+- Agent functionality not working well
+- Spent significant time configuring local file access
+- Model runners tested:
+  - Doctor model runner (less stable than Llama)
+  - Llama (more stable)
+- SSH integration with S3 code had poor behavior
 
-- Try VS code insiders.
-- Search for other local code tools.
-- Continue COI maybe
-- Try notebook LM on continue documents
+### Documentation Improvements Needed
+- [ ] Add sample configuration files
+- [ ] Take screenshots for documentation
+- [ ] Create detailed documentation page
+- [ ] Add references with links
+- [ ] Consider publishing on GitHub
 
-- Another document on Tailscale playbook
-- Followed example and it worked fine.
-- Add links to Tailscale itself.
-- Link to Prox box
-- Discuss keeping VMS in doctor separate from spark
+## Local Development & Tools
 
-```
+### Current Preference
+- Using Copilot, Cursor, or VS Code (rather than local alternatives)
+- Keeping local GPU for data processing
+
+### Tools to Explore
+- [ ] VS Code Insiders
+- [ ] Other local code tools
+- [ ] Continue CoI (evaluation pending)
+- [ ] NotebookLM integration with Continue documents
+
+## Tailscale Playbook
+
+### Status
+- Followed example - works well
+
+### Documentation Improvements
+- [ ] Add links to Tailscale documentation
+- [ ] Link to Proxmox box documentation
+- [ ] Document VM separation strategy (Doctor vs Spark)
