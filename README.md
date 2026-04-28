@@ -15,6 +15,19 @@ Each review will likely be shorter, more to the point, with less spin on how won
 - [Playbook: Set up Tailscale on Your Spark](#playbook-set-up-tailscale-on-your-spark)
 - [Bonus: Immich photo Server](#bonus-immich-photo-server)
 - [Playbook: Text to Knowledge Graph](#playbook-text-to-knowledge-graph)
+- [Bonus: Ignidash](#bonus-ignidash)
+- [Bonus: Finplan](#bonus-finplan)
+- [Bonus: OpenRAG](#bonus-openrag)
+- [Bonus: AnythingLLM](#bonus-anythingllm)
+- [Bonus: Docker Model Runner (DMR) on Spark](#bonus-docker-model-runner-dmr-on-spark)
+- [Bonus: Docling](#bonus-docling)
+- [Bonus: MyWordle](#bonus-mywordle)
+- [Bonus: Tailscale](#bonus-tailscale)
+- [Bonus: Obsidian](#bonus-obsidian)
+- [Bonus: Stacked Graph with Claude and "superpowers"](#bonus-stacked-graph-with-claude-and-superpowers)
+- [Bonus: Git Report/Inspector](#bonus-git-reportinspector)
+- [Bonus: Nemotron 3](#bonus-nemotron-3)
+- [Bonus: Gemma 4](#bonus-gemma-4)
 - [Follow up Tasks](#follow-up-tasks)
 - [REFERENCES](#references)
 - [(PRIVATE) REFERENCES](#private-references)
@@ -29,6 +42,18 @@ Each review will likely be shorter, more to the point, with less spin on how won
 | Vibe Coding in VS Code | ⚠️ Partial | Use VS Code Insiders with Copilot (free); Continue.dev not recommended |
 | Tailscale | ✅ Works | Excellent; perfect for secure remote access |
 | Text to Knowledge Graph | ⏳ TODO | In progress |
+| Ignidash | ❌ Dropped | Not suitable for multi-account or broader personal finance use |
+| Finplan | ⚠️ Partial | Useful Rust TUI exploration; supporting tooling was incomplete |
+| OpenRAG | ⚠️ Mixed | Local/air-gapped setup possible, but PDF parsing quality was disappointing |
+| AnythingLLM | ❌ Did Not Run | Attempted local/private PDF workflow, but setup was never completed |
+| Docker Model Runner (DMR) on Spark | ⚠️ Mixed | Easy setup, but model support/performance was limited in practice |
+| Docling | ⚠️ Mixed | Promising for local PDF parsing, but results were weak for your use case |
+| MyWordle | ✅ Works | Successful PWA built quickly with agent-assisted workflow |
+| Obsidian | ✅ Works | Valuable daily knowledge workflow with private GitHub backend |
+| Stacked Graph with Claude | ✅ Works | Viable CSV visualization PWA prototype for future frontend use |
+| Git Report/Inspector | ✅ Works | Useful Golang TUI for repository inspection and Git operations |
+| Nemotron 3 | ⚠️ Mixed | Ollama on Spark works well; vLLM setups need more tuning/debugging |
+| Gemma 4 | ✅ Works | Broadly runs across Spark/M5 stacks with decent performance; avoid weaker eb4 setups |
 
 ## Playbook: DGX-Dashboard
 
@@ -36,7 +61,7 @@ Each review will likely be shorter, more to the point, with less spin on how won
 
 https://build.nvidia.com/spark/dgx-dashboard
 
-Really simple install.  The dashboard is basically a tool tray app (OS independant) that uses ssh to connect to your Spark.  It launches a Webpage to show a simple Dashboard.  I found the GPU and memory usage to be less responsive that other tools.  Hard to determine if 
+Really simple install.  The dashboard is basically a tool tray app (OS independent) that uses ssh to connect to your Spark.  It launches a web page to show a simple dashboard.  I found the GPU and memory usage to be less responsive than other tools.  Hard to determine if 
 
 The first alternative to watch for GPU usage is to ssh into the Spark and use "nvidia-smi".
 
@@ -125,7 +150,7 @@ And stopped by:
 - cd <directory>
 - docker compose stop
 
-The instrunctions do describe nicely how to update OpenWebUI when it shows an update.  It's even simpler with docker compose:
+The instructions do describe nicely how to update OpenWebUI when it shows an update.  It's even simpler with docker compose:
 - cd <directory>
 - docker compose stop
 - docker compose pull
@@ -337,6 +362,122 @@ https://build.nvidia.com/spark/txt2kg
 - derailed looking for local replacement for Copilot with Continue.dev or VS Code Insiders
 
 
+## Bonus: Ignidash
+
+- forked existing project: https://github.com/schelskedevco/ignidash
+- https://github.com/alpiepho/ignidash
+- built and run
+- determined that project won't work
+  - only financial info for single person
+  - limited accounts
+
+## Bonus: Finplan
+
+- forked existing project: https://github.com/jgrazian/finplan
+- https://github.com/alpiepho/finplan
+- tui in rust
+- vibe coded docker compose 
+- vibe coded validator for input data
+- started vibe coding MCP server (dropped work)
+
+## Bonus: OpenRAG
+
+- forked from IBM: https://github.com/langflow-ai/openrag
+- https://github.com/alpiepho/openrag
+- wanted a way to parse pdf locally/privately
+- branch to use ollama
+- branch to test airgapped
+- got things working
+- air gap was not trivial
+- PDF parsing was disappointing
+
+## Bonus: AnythingLLM
+
+- forked from: https://github.com/Mintplex-Labs/anything-llm
+- https://github.com/alpiepho/anything-llm
+- another attempt to parse pdf locally/privately
+- never got this running
+
+## Bonus: Docker Model Runner (DMR) on Spark
+
+- Easy to set up
+- Nice idea
+- But limited models
+- Doesn't run well
+
+## Bonus: Docling
+
+- forked from IBM: https://github.com/docling-project/docling
+- https://github.com/alpiepho/docling
+- another attempt to parse pdf locally/privately
+- found as part of openrag
+- again, didn't work well
+- eventually fell back to Linux tool pdf2txt
+
+## Bonus: MyWordle
+
+- https://github.com/alpiepho/my_wordle
+- vibe coded wordle with Copilot / Agent / Claude Opus 4.6
+- full PWA
+- 4 hours
+
+## Bonus: Tailscale
+
+- setup
+- actively using
+- tested from out of state
+
+## Bonus: Obsidian
+
+- started March
+- find this valuable
+- not as pretty as YouTube examples
+- use private GitHub repo as backend
+- discovered Obsidian Web Clipper from Karpathy idea
+- Nate Herk:
+- https://www.youtube.com/watch?v=sboNwYmH3AY
+- https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+- vibe coded (Claude?) conversion of Chrome bookmarks to Obsidian
+
+
+## Bonus: Stacked Graph with Claude and "superpowers"
+
+- https://github.com/alpiepho/stacked_graph_claude
+- future front end for viewing CSV files
+- Claude code with "superpowers"
+- try at https://alpiepho.github.io/stacked_graph_claude/
+
+
+## Bonus: Git Report/Inspector
+
+- https://github.com/alpiepho/gh-repo-inspector
+- vibe coded Golang TUI to inspect git repos
+- allows inspect, clone, and push to GitLab, etc
+
+
+## Bonus: Nemotron 3
+
+- new from NVIDIA
+- run with Ollama on Spark (nemotron-3-nano:30b and nemotron-3-super:120b)
+- works with OpenCode
+- tried with Docker/vLLM on Spark (runs, but OpenCode chat gets garbage)
+- tried with vLLM on Spark (runs, but config ugly and many context limits)
+- someday, debug vLLM configs
+
+## Bonus: Gemma 4
+
+- new from Google
+- LM Studio on m5 (eb4)
+- llama.cpp on m5 (eb4, 26b crashes)
+- Ollama on Spark (26b)
+- llama.cpp on Spark (26b)
+- vLLM on Spark (26b, with limited config)
+- decent operation and performance
+- eb4 gives up too easily
+- Spark Ollama vs llama.cpp operate differently
+- vLLM works but has ugly configs
+- someday, debug vLLM configs
+
 ## Follow up Tasks
 
 **Completed:**
@@ -345,6 +486,8 @@ https://build.nvidia.com/spark/txt2kg
 - [x] Vibe Coding in VS Code
 - [x] Immich photo Server
 - [x] Tailscale on DGX Spark
+- [x] Nemotron 3 evaluation across Ollama and vLLM
+- [x] Gemma 4 evaluation across Spark and M5 stacks
 
 **Deferred (Not Pursuing):**
 - [-] DMR setup for OpenWebUI (Ollama sufficient)
@@ -353,12 +496,14 @@ https://build.nvidia.com/spark/txt2kg
 **In Progress:**
 - [ ] Text to Knowledge Graph
 - [ ] Immich EXIF metadata tools
-- [ ] Tailscale access patterns & security best practices
+- [x] Tailscale access patterns & security best practices
 
 **Future Investigation:**
 - [ ] Updates for "nvtop" memory tracking
+      - nvtop works well with llama.cpp and vllm, but not as well with docker/ollama
 - [ ] Evaluate VS Code Insiders with alternative models
 - [ ] Explore NotebookLM integration with Continue documentation
+- [ ] Debug and tune vLLM configs for Nemotron 3 and Gemma 4 on Spark
 
 
 ## REFERENCES
