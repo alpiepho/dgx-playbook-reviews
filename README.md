@@ -353,7 +353,7 @@ Rather than run Immich on the DGX Spark (which doesn't need GPU), I migrated it 
 
 ## Playbook: Text to Knowledge Graph
 
-TODO
+1/5/2028 - deferred
 
 https://build.nvidia.com/spark/txt2kg
 
@@ -364,6 +364,8 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Ignidash
 
+1/16/2026
+
 - forked existing project: https://github.com/schelskedevco/ignidash
 - https://github.com/alpiepho/ignidash
 - built and run
@@ -373,6 +375,8 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Finplan
 
+2/28/2026
+
 - forked existing project: https://github.com/jgrazian/finplan
 - https://github.com/alpiepho/finplan
 - tui in rust
@@ -381,6 +385,8 @@ https://build.nvidia.com/spark/txt2kg
 - started vibe coding MCP server (dropped work)
 
 ## Bonus: OpenRAG
+
+3/3/2026
 
 - forked from IBM: https://github.com/langflow-ai/openrag
 - https://github.com/alpiepho/openrag
@@ -393,6 +399,8 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: AnythingLLM
 
+3/5/2026
+
 - forked from: https://github.com/Mintplex-Labs/anything-llm
 - https://github.com/alpiepho/anything-llm
 - another attempt to parse pdf locally/privately
@@ -400,12 +408,16 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Docker Model Runner (DMR) on Spark
 
+3/20/2026
+
 - Easy to set up
 - Nice idea
 - But limited models
 - Doesn't run well
 
 ## Bonus: Docling
+
+3/17/2026
 
 - forked from IBM: https://github.com/docling-project/docling
 - https://github.com/alpiepho/docling
@@ -416,6 +428,8 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: MyWordle
 
+2/17/2026
+
 - https://github.com/alpiepho/my_wordle
 - vibe coded wordle with Copilot / Agent / Claude Opus 4.6
 - full PWA
@@ -423,11 +437,15 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Tailscale
 
+4/1/2026
+
 - setup
 - actively using
 - tested from out of state
 
 ## Bonus: Obsidian
+
+3/21/2026
 
 - started March
 - find this valuable
@@ -442,6 +460,8 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Stacked Graph with Claude and "superpowers"
 
+4/9/2026
+
 - https://github.com/alpiepho/stacked_graph_claude
 - future front end for viewing CSV files
 - Claude code with "superpowers"
@@ -450,12 +470,16 @@ https://build.nvidia.com/spark/txt2kg
 
 ## Bonus: Git Report/Inspector
 
+4/15/2026
+
 - https://github.com/alpiepho/gh-repo-inspector
 - vibe coded Golang TUI to inspect git repos
 - allows inspect, clone, and push to GitLab, etc
 
 
 ## Bonus: Nemotron 3
+
+4/3/2026
 
 - new from NVIDIA
 - run with Ollama on Spark (nemotron-3-nano:30b and nemotron-3-super:120b)
@@ -465,6 +489,8 @@ https://build.nvidia.com/spark/txt2kg
 - someday, debug vLLM configs
 
 ## Bonus: Gemma 4
+
+4/25/2026
 
 - new from Google
 - LM Studio on m5 (eb4)
@@ -488,22 +514,24 @@ https://build.nvidia.com/spark/txt2kg
 - [x] Tailscale on DGX Spark
 - [x] Nemotron 3 evaluation across Ollama and vLLM
 - [x] Gemma 4 evaluation across Spark and M5 stacks
+- [x] Tailscale access patterns & security best practices
 
 **Deferred (Not Pursuing):**
 - [-] DMR setup for OpenWebUI (Ollama sufficient)
 - [-] Continue.dev integration (plugin unreliable, using Copilot instead)
+- [-] Text to Knowledge Graph
 
 **In Progress:**
-- [ ] Text to Knowledge Graph
 - [ ] Immich EXIF metadata tools
-- [x] Tailscale access patterns & security best practices
+- [ ] Tailscale for other apps
 
 **Future Investigation:**
+- [ ] Nemotron 3 omni (dgx spark + vllm + opencode)
+- [ ] Debug and tune vLLM configs for Nemotron 3 and Gemma 4 on Spark
 - [ ] Updates for "nvtop" memory tracking
       - nvtop works well with llama.cpp and vllm, but not as well with docker/ollama
 - [ ] Evaluate VS Code Insiders with alternative models
 - [ ] Explore NotebookLM integration with Continue documentation
-- [ ] Debug and tune vLLM configs for Nemotron 3 and Gemma 4 on Spark
 
 
 ## REFERENCES
